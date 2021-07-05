@@ -1,0 +1,24 @@
+
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block Hashapp %}
+<div class="container" style="align: centre">
+    <div class="jumbotron">
+         {% if registered %}
+    <h1>Thank You for registering!</h1>
+    {% else %}
+                <h1>Register Here! </h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Fill out the form:</h3>
+         {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <button class="btn btn-dark">Register!</button>
+    </form>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
